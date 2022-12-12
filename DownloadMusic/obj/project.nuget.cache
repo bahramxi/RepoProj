@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "eTUjrnR82SX37OLEd33rljm3m145+qUvZ93Gs6GxJhbSlt3nSx750yR9ig1kYoHqZD7oGrRlST2dC0d7jJqbvQ==",
+  "success": true,
+  "projectFilePath": "D:\\Projects\\MyRepo\\DownloadMusicProj\\DownloadMusic\\DownloadMusic\\DownloadMusic.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\this pc\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.17.0\\microsoft.visualstudio.azure.containers.tools.targets.1.17.0.nupkg.sha512"
+  ],
+  "logs": []
+}
