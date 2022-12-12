@@ -104,11 +104,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projects\\MyRepo\\DownloadMusicProj\\DownloadMusic\\DownloadMusic\\DownloadMusic.csproj",
+      "projectUniqueName": "D:\\Projects\\MyRepo\\DownloadMusic\\DownloadMusic.csproj",
       "projectName": "DownloadMusic",
-      "projectPath": "D:\\Projects\\MyRepo\\DownloadMusicProj\\DownloadMusic\\DownloadMusic\\DownloadMusic.csproj",
+      "projectPath": "D:\\Projects\\MyRepo\\DownloadMusic\\DownloadMusic.csproj",
       "packagesPath": "C:\\Users\\this pc\\.nuget\\packages\\",
-      "outputPath": "D:\\Projects\\MyRepo\\DownloadMusicProj\\DownloadMusic\\DownloadMusic\\obj\\",
+      "outputPath": "D:\\Projects\\MyRepo\\DownloadMusic\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\this pc\\AppData\\Roaming\\NuGet\\NuGet.Config",
