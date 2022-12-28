@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DownloadMusic.Models
 {
-    public class MusicTrackViewModel
+    public class MusicTrackViewModel 
     {
 
         [Required(ErrorMessage = "{0} را وارد نمایید")]
@@ -23,19 +23,19 @@ namespace DownloadMusic.Models
         [Display(Name = "نام آلبوم", Prompt = "نام آلبوم"), MaxLength(150, ErrorMessage = "حداکثر {0} باید {1} کاراکتر باشد")]
         public string Album { get; set; }
 
+        [Display(Name = "دسته بندی آهنگ", Prompt = "دسته بندی آهنگ")]
+        public MusicCategory MusicCategory { get; set; }
 
         [Display(Name = "متن آهنگ", Prompt = "متن آهنگ"), MaxLength(150, ErrorMessage = "حداکثر {0} باید {1} کاراکتر باشد")]
         public string MusicText { get; set; }
 
         [Required(ErrorMessage = "{0} را وارد نمایید")]
-        [Display(Name = "آپلود فایل آهنگ", Prompt = "آپلود فایل آهنگ"), MaxLength(150, ErrorMessage = "حداکثر {0} باید {1} کاراکتر باشد")]
-        [NotMapped]
+        [Display(Name = "آپلود فایل آهنگ", Prompt = "آپلود فایل آهنگ")]
         public IFormFile MusicFile { get; set; }
 
 
         [Required(ErrorMessage = "{0} را وارد نمایید")]
-        [Display(Name = "کاور آهنگ", Prompt = "کاور آهنگ"), MaxLength(150, ErrorMessage = "حداکثر {0} باید {1} کاراکتر باشد")]
-        [NotMapped]
+        [Display(Name = "کاور آهنگ", Prompt = "کاور آهنگ")]
         public IFormFile Image { get; set; }
 
 

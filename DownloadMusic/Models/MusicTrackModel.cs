@@ -17,16 +17,18 @@ namespace DownloadMusic.Models
 
         public string Vocalist { get; set; }
 
+        public MusicCategory MusicCategory { get; set; }
 
         public string Album { get; set; }
 
 
         public string MusicText { get; set; }
 
-
+        public string MusicFilePath { get; set; }
         public byte[] MusicForSave { get; set; }
 
 
+        public string ImageFilePath { get; set; }
         public byte[] ImageForSave{ get; set; }
 
 

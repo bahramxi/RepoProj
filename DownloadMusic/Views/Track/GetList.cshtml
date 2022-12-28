@@ -1,5 +1,56 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model List<MusicTrackViewModel>
+
+
+<body>
+
+    <table class="table-bordered">
+        <caption>لیست آهنگ ها</caption>
+        <tr>
+            <th>نام آهنگ</th>
+            <th>خواننده</th>
+            <th>شاعر</th>
+            <th>آلبوم</th>
+            <th>رسته آهنگ</th>
+            <th>توضیحات</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+        <tr>
+                <th>@item.TitleMusic</th>
+                <th>@item.Vocalist</th>
+                <th>@item.Songwriter</th>
+                <th>@item.Album</th>
+                <th>@item.MusicCategory</th>
+                <th>@item.Description</th>
+                <th><button class="btn-dark">ویرایش</button></th>
+                <th><button class="btn-danger">حذف</button></th>
+             
+        </tr>
+        }
+    </table>
+@*    <form id="form1">
+        <div class="table-bordered">
+            <div class="headRow">
+                <div class="divCell" align="center">شماره</div>
+                <div class="divCell">Customer Name</div>
+                <div class="divCell">Customer Address</div>
+            </div>
+            <div class="divRow">
+                <div class="divCell">001</div>
+                <div class="divCell">002</div>
+                <div class="divCell">003</div>
+            </div>
+            <div class="divRow">
+                <div class="divCell">xxx</div>
+                <div class="divCell">yyy</div>
+                <div class="divCell">www</div>
+            </div>
+            <div class="divRow">
+                <div class="divCell">ttt</div>
+                <div class="divCell">uuu</div>
+                <div class="divCell">Mkkk</div>
+            </div>
+
+        </div>
+    </form>*@
+</body>

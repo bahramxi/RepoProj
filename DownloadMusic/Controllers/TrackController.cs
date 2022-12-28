@@ -46,7 +46,10 @@ namespace DownloadMusic.Controllers
                 MusicForSave = FileConvertToByte(model.MusicFile),
                 MusicText = model.MusicText,
                 Songwriter = model.Songwriter,
-                Vocalist = model.Vocalist
+                Vocalist = model.Vocalist,
+                MusicCategory=model.MusicCategory,
+                MusicFilePath="Null",
+                ImageFilePath="Null"
             };
             var result=_musicDb.Add(music);
             _musicDb.SaveChanges();
@@ -55,20 +58,47 @@ namespace DownloadMusic.Controllers
         }
         public IActionResult GetList()
         {
-            var result = _musicDb.MusicTracks.ToList();
-            return View(result);
+            var resultList = _musicDb.MusicTracks.ToList();
+            var listViewModel =resultList.Select(
+                s=>new MusicTrackViewModel { 
+                            //    {
+                    TitleMusic = s.TitleMusic,
+                    Album = s.Album,
+                    Description = s.Description,
+                    MusicCategory = s.MusicCategory,
+                    Songwriter = s.Songwriter,
+                    Vocalist = s.Vocalist,
+
+                }).ToList();
+            //foreach (var item in resultList)
+            //{
+            //    var viewModel = new MusicTrackViewModel
+            //    {
+            //        TitleMusic = item.TitleMusic,
+            //        Album = item.Album,
+            //        Description = item.Description,
+            //        MusicCategory = item.MusicCategory,
+            //        Songwriter = item.Songwriter,
+            //        Vocalist = item.Vocalist
+
+            //    };
+            //    listViewModel.Add(viewModel);
+            //}
+            return View(listViewModel);
         }
 
         public IActionResult Add()
         {
-             return View();
+            //MusicTrackViewModel model = new MusicTrackViewModel();
+            //return View(model);
+            return View();
         }
         
         [HttpPost] 
         public IActionResult Add(MusicTrackViewModel model)
         {
           var result = AddMusic(model);
-            return View(result);
+            return View("Add");
         }
 
         public IActionResult Update(MusicTrackModel model)
