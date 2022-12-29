@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DownloadMusic.Models
 {
-    public class MusicTrackViewModel 
+    public class MusicTrackViewModel:ResponseModel
     {
 
         [Required(ErrorMessage = "{0} را وارد نمایید")]
