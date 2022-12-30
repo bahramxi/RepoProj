@@ -1,7 +1,11 @@
-var builder = WebApplication.CreateBuilder(args);
+using DownloadMusic.Models;
+using Microsoft.EntityFrameworkCore;
 
+var builder = WebApplication.CreateBuilder(args);
+//var connectionString = builder.Configuration.GetConnectionString("MusicConnection");
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<MusicDbContext>(o => o.UseSqlServer(builder.Configuration.GetConnectionString("MusicConnection")));
 
 var app = builder.Build();
 

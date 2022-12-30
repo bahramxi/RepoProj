@@ -6,9 +6,9 @@ namespace DownloadMusic.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ILogger<TrackController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<TrackController> logger)
         {
             _logger = logger;
         }
@@ -17,5 +17,6 @@ namespace DownloadMusic.Controllers
         {
             return View();
         }
+
     }
 }
