@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using System.Collections;
 using System.Diagnostics;
+using System.IO;
 
 namespace DownloadMusic.Controllers
 {
@@ -37,6 +38,12 @@ namespace DownloadMusic.Controllers
 
         private bool AddMusic(MusicTrackViewModel model)
         {
+            string path = Path.Combine(Directory.GetCurrentDirectory(), $"UploadFile/{model.MusicCategory}");
+            var musicFileName = model.MusicFile.FileName;
+            var imageFileName = model.Image.FileName;
+            FileInfo fileInfo = new FileInfo(model.MusicFile.FileName);
+            string musicNameWithPath = Path.Combine(path, musicFileName);
+            string imageWithPath = Path.Combine(path, imageFileName);
             var music = new MusicTrackModel()
             {
                 Album = model.Album,
@@ -48,8 +55,10 @@ namespace DownloadMusic.Controllers
                 Songwriter = model.Songwriter,
                 Vocalist = model.Vocalist,
                 MusicCategory = model.MusicCategory,
-                MusicFilePath = "Null",
-                ImageFilePath = "Null"
+                MusicFilePath = musicNameWithPath,
+                MusicName =model.MusicFile.FileName,
+                MusicFileExtention= fileInfo.Extension,
+                ImageFilePath = imageWithPath
             };
             var result = _musicDb.Add(music);
             _musicDb.SaveChanges();
