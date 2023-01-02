@@ -191,7 +191,6 @@ namespace DownloadMusic.Controllers
                 musicResult.MusicCategory = model.MusicCategory;
                 musicResult.Vocalist = model.Vocalist;
                 musicResult.MusicText = model.MusicText;
-                musicResult.MusicCategory=model.MusicCategory;
                 musicResult.MusicFilePath = musicNameWithPath;
                 musicResult.ImageFilePath = imageWithPath;
                 musicResult.MusicFileExtention = fileInfo.Extension;
@@ -214,11 +213,31 @@ namespace DownloadMusic.Controllers
 
     public IActionResult Remove(long id)
     {
-        var result = _musicDb.MusicTracks.Select(m => m.Id == id);
-        var finlaResult = _musicDb.Remove(result);
-        return View(result);
+        var result = _musicDb.MusicTracks.Find(id);
+            if (result == null)
+                return NotFound();
+        var finlaResult = _musicDb.MusicTracks.Remove(result);
+            _musicDb.SaveChanges();
+            var IsMessage = "حذف با موفقیت انجام شد";
+        return View("Remove",IsMessage);
     }
 
+        public IActionResult Details(long id)
+        {
+            var result = _musicDb.MusicTracks.Find(id);
+            var model = new MusicTrackViewModel
+            {
+                Id = id,
+            TitleMusic = result.TitleMusic,
+            Album = result.Album,
+            Description = result.Description,
+            Songwriter = result.Songwriter,
+            MusicCategory = result.MusicCategory,
+            Vocalist = result.Vocalist,
+            MusicText = result.MusicText
+        };
+            return View(model);
+        }
 
 
     }

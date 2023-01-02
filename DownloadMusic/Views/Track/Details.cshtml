@@ -1,0 +1,36 @@
+﻿@model DownloadMusic.Models.MusicTrackViewModel
+
+
+<div class="">
+    <div class="">
+        <h3 class="m-login__title">اطلاعات آهنگ</h3>
+    </div>
+        <div class="form-group m-form__group">
+        <input class="form-control m-input" asp-for="TitleMusic" readonly="readonly" />
+        </div>
+        <div class="form-group m-form__group">
+        <input class="form-control m-input" asp-for="Songwriter" readonly="readonly">
+        </div>
+        <div class="form-group m-form__group">
+        <input class="form-control m-input" asp-for="Vocalist" readonly="readonly">
+        </div>
+        <div class="form-group m-form__group">
+        <input class="form-control m-input" asp-for="Album" readonly="readonly">
+        </div>
+        <div class="form-group m-form__group">
+        <input class="form-control m-input" asp-for="MusicText" readonly="readonly">
+        </div>
+    <div class="form-group m-form__group">
+        <input class="form-control m-input" asp-for="Description" readonly="readonly">
+        </div>
+        <div class="form-group m-form__group">
+        <input class="form-control m-input" asp-for="MusicCategory" readonly="readonly">
+        </div>
+
+        <div class="row mt-2">
+            <div class="col-12">
+                <a asp-action="Update" asp-route-id="@Model.Id">ویرایش</a>
+            </div>
+        </div>
+
+</div>
