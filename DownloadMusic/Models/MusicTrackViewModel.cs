@@ -1,4 +1,5 @@
-﻿using Microsoft.Identity.Client;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Identity.Client;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -6,6 +7,8 @@ namespace DownloadMusic.Models
 {
     public class MusicTrackViewModel:ResponseModel
     {
+        [HiddenInput]
+        public long Id { get; set; }
 
         [Required(ErrorMessage = "{0} را وارد نمایید")]
         [Display(Name = "نام موزیک", Prompt = "نام موزیک"), MaxLength(150, ErrorMessage = "حداکثر {0} باید {1} کاراکتر باشد")]

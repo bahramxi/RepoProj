@@ -367,3 +367,4 @@ FodyWeavers.xsd
 /src/05. LoggerService
 /src/07. Oauth
 /test/Test.Banking.Api/Properties
+/ProjectWebTest/WebApplication2
