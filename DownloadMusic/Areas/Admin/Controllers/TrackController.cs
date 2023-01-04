@@ -7,8 +7,9 @@ using System.Data.Common;
 using System.Diagnostics;
 using System.IO;
 
-namespace DownloadMusic.Controllers
+namespace DownloadMusic.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class TrackController : Controller
     {
         private readonly ILogger<TrackController> _logger;
@@ -74,7 +75,7 @@ namespace DownloadMusic.Controllers
                 s => new MusicTrackViewModel
                 {
                     //    {
-                    Id=s.Id,
+                    Id = s.Id,
                     TitleMusic = s.TitleMusic,
                     Album = s.Album,
                     Description = s.Description,
@@ -135,7 +136,7 @@ namespace DownloadMusic.Controllers
 
 
         public IActionResult Update(long? id)
-         {
+        {
 
             if (id == null)
             {
@@ -152,19 +153,19 @@ namespace DownloadMusic.Controllers
                 Songwriter = result.Songwriter,
                 Vocalist = result.Vocalist
             };
-            if (updateMusic==null)
+            if (updateMusic == null)
             {
                 return NotFound();
             }
             return View(updateMusic);
         }
-            
 
-    
 
-    [HttpPost]
-    public IActionResult Update(MusicTrackViewModel model,long id)
-    {
+
+
+        [HttpPost]
+        public IActionResult Update(MusicTrackViewModel model, long id)
+        {
 
             string path = Path.Combine(Directory.GetCurrentDirectory(), $"UploadFile/{model.MusicCategory}");
             if (!Directory.Exists(path))
@@ -180,47 +181,47 @@ namespace DownloadMusic.Controllers
             FileInfo fileInfo = new FileInfo(model.MusicFile.FileName);
             string musicNameWithPath = Path.Combine(path, musicFileName);
             string imageWithPath = Path.Combine(path, imageFileName);
-            
-
-          var musicResult = _musicDb.MusicTracks.Find(id);
-
-                musicResult.TitleMusic = model.TitleMusic;
-                musicResult.Album = model.Album;
-                musicResult.Description = model.Description;
-                musicResult.Songwriter = model.Songwriter;
-                musicResult.MusicCategory = model.MusicCategory;
-                musicResult.Vocalist = model.Vocalist;
-                musicResult.MusicText = model.MusicText;
-                musicResult.MusicFilePath = musicNameWithPath;
-                musicResult.ImageFilePath = imageWithPath;
-                musicResult.MusicFileExtention = fileInfo.Extension;
-                musicResult.MusicName = model.MusicFile.FileName;
-                musicResult.MusicForSave = FileConvertToByte(model.MusicFile);
-                musicResult.ImageForSave = FileConvertToByte(model.Image);
-
-                _musicDb.Update(musicResult);
-                _musicDb.SaveChanges();
-                model.IsSuccess = true;
-                model.IsResponse = true;
-                model.Message = "موزیک با موفقیت ویرایش شد";
-
-                //return RedirectToAction(nameof(Update));
 
 
-        return View(model);
-    }
+            var musicResult = _musicDb.MusicTracks.Find(id);
+
+            musicResult.TitleMusic = model.TitleMusic;
+            musicResult.Album = model.Album;
+            musicResult.Description = model.Description;
+            musicResult.Songwriter = model.Songwriter;
+            musicResult.MusicCategory = model.MusicCategory;
+            musicResult.Vocalist = model.Vocalist;
+            musicResult.MusicText = model.MusicText;
+            musicResult.MusicFilePath = musicNameWithPath;
+            musicResult.ImageFilePath = imageWithPath;
+            musicResult.MusicFileExtention = fileInfo.Extension;
+            musicResult.MusicName = model.MusicFile.FileName;
+            musicResult.MusicForSave = FileConvertToByte(model.MusicFile);
+            musicResult.ImageForSave = FileConvertToByte(model.Image);
+
+            _musicDb.Update(musicResult);
+            _musicDb.SaveChanges();
+            model.IsSuccess = true;
+            model.IsResponse = true;
+            model.Message = "موزیک با موفقیت ویرایش شد";
+
+            //return RedirectToAction(nameof(Update));
 
 
-    public IActionResult Remove(long id)
-    {
-        var result = _musicDb.MusicTracks.Find(id);
+            return View(model);
+        }
+
+
+        public IActionResult Remove(long id)
+        {
+            var result = _musicDb.MusicTracks.Find(id);
             if (result == null)
                 return NotFound();
-        var finlaResult = _musicDb.MusicTracks.Remove(result);
+            var finlaResult = _musicDb.MusicTracks.Remove(result);
             _musicDb.SaveChanges();
             var IsMessage = "حذف با موفقیت انجام شد";
-        return View("Remove",IsMessage);
-    }
+            return View("Remove", IsMessage);
+        }
 
         public IActionResult Details(long id)
         {
@@ -228,14 +229,14 @@ namespace DownloadMusic.Controllers
             var model = new MusicTrackViewModel
             {
                 Id = id,
-            TitleMusic = result.TitleMusic,
-            Album = result.Album,
-            Description = result.Description,
-            Songwriter = result.Songwriter,
-            MusicCategory = result.MusicCategory,
-            Vocalist = result.Vocalist,
-            MusicText = result.MusicText
-        };
+                TitleMusic = result.TitleMusic,
+                Album = result.Album,
+                Description = result.Description,
+                Songwriter = result.Songwriter,
+                MusicCategory = result.MusicCategory,
+                Vocalist = result.Vocalist,
+                MusicText = result.MusicText
+            };
             return View(model);
         }
 
