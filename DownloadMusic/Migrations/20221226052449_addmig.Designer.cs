@@ -3,6 +3,7 @@ using DownloadMusic.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DownloadMusic.Migrations
 {
     [DbContext(typeof(MusicDbContext))]
-    partial class MusicDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221226052449_addmig")]
+    partial class addmig
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -48,10 +51,6 @@ namespace DownloadMusic.Migrations
                     b.Property<int>("MusicCategory")
                         .HasColumnType("int");
 
-                    b.Property<string>("MusicFileExtention")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("MusicFilePath")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -59,10 +58,6 @@ namespace DownloadMusic.Migrations
                     b.Property<byte[]>("MusicForSave")
                         .IsRequired()
                         .HasColumnType("varbinary(max)");
-
-                    b.Property<string>("MusicName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("MusicText")
                         .IsRequired()
