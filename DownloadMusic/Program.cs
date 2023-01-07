@@ -24,12 +24,28 @@ app.UseRouting();
 
 app.UseAuthorization();
 
-app.MapControllerRoute(
-    name: "Admin",
-    pattern: "{area:exists}/{controller=Track}/{action=GetList}/{id?}");
 
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+//app.MapControllerRoute(
+//    name: "default",
+//    pattern: "{controller=Home}/{action=Index}/{id?}");
+
+app.UseEndpoints(endpoints =>
+{
+    // 1
+    endpoints.MapControllerRoute(
+        name: "area",
+        pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+
+    // 2
+    endpoints.MapAreaControllerRoute(
+                       name: "default",
+                       areaName: "MainDownload",
+                       pattern: "{area=MainDownload}/{controller=Home}/{action=Index}/{id?}");
+
+    endpoints.MapAreaControllerRoute(
+            name: "MyAdmin",
+            areaName: "Admin",
+            pattern: "Admin/{controller=track}/{action=GetList}/{id?}");
+});
 
 app.Run();

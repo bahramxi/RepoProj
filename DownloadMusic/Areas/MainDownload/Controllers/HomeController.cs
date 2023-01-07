@@ -2,8 +2,9 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace DownloadMusic.Controllers
+namespace DownloadMusic.Areas.MainDownload.Controllers
 {
+    [Area("MainDownload")]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -13,11 +14,10 @@ namespace DownloadMusic.Controllers
             _logger = logger;
         }
 
-        //public IActionResult Index()
-        //{
-        //   // return View("~/Areas/MainDownload/views/Home/index.cshtml");
-        //   return View();
-        //}
+        public IActionResult Index()
+        {
+            return View();
+        }
 
     }
 }
