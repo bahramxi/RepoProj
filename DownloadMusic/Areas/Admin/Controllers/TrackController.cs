@@ -68,6 +68,11 @@ namespace DownloadMusic.Areas.Admin.Controllers
             return true;
 
         }
+
+        public IActionResult Index()
+        {
+            return View();
+        }
         public IActionResult GetList()
         {
             var resultList = _musicDb.MusicTracks.ToList();

@@ -45,7 +45,7 @@ app.UseEndpoints(endpoints =>
     endpoints.MapAreaControllerRoute(
             name: "MyAdmin",
             areaName: "Admin",
-            pattern: "Admin/{controller=track}/{action=GetList}/{id?}");
+            pattern: "Admin/{controller=track}/{action=Index}/{id?}");
 });
 
 app.Run();

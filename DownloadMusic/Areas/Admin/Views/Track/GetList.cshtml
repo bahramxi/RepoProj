@@ -1,63 +1,103 @@
 ﻿@model List<MusicTrackViewModel>
 
 
-<body>
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            آهنگ ها
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> خانه</a></li>
+            <li><a href="#">لیست آهنگ ها</a></li>
+        </ol>
+    </section>
 
-    <table class="table-bordered">
-        <caption>لیست آهنگ ها</caption>
-        <tr>
-            <th>نام آهنگ</th>
-            <th>خواننده</th>
-            <th>شاعر</th>
-            <th>آلبوم</th>
-            <th>رسته آهنگ</th>
-            <th>توضیحات</th>
-        </tr>
-        @foreach (var item in Model)
-        {
-        <tr>
-                <th>@item.TitleMusic</th>
-                <th>@item.Vocalist</th>
-                <th>@item.Songwriter</th>
-                <th>@item.Album</th>
-                <th>@item.MusicCategory</th>
-                <th>@item.Description</th>
-                <th><a asp-action="Details" asp-route-id="@item.Id">جزئیات</a></th>
-                <th><a asp-action="Update" asp-route-id="@item.Id">ویرایش</a></th>
-                <th><a asp-action="Remove" asp-route-id="@item.Id">حذف</a></th>
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+                <!-- /.box -->
 
-                @* <th><button asp-action="Update" class="btn-dark" asp-route-id="@item.Id">ویرایش</button></th>
-                <th><button asp-action="Delete" class="btn-danger" asp-route-id="@item.Id">حذف</button></th>*@
-             
-        </tr>
-        }
-    </table>
-@*    <form id="form1">
-        <div class="table-bordered">
-            <div class="headRow">
-                <div class="divCell" align="center">شماره</div>
-                <div class="divCell">Customer Name</div>
-                <div class="divCell">Customer Address</div>
-            </div>
-            <div class="divRow">
-                <div class="divCell">001</div>
-                <div class="divCell">002</div>
-                <div class="divCell">003</div>
-            </div>
-            <div class="divRow">
-                <div class="divCell">xxx</div>
-                <div class="divCell">yyy</div>
-                <div class="divCell">www</div>
-            </div>
-            <div class="divRow">
-                <div class="divCell">ttt</div>
-                <div class="divCell">uuu</div>
-                <div class="divCell">Mkkk</div>
-            </div>
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title">لیست آهنگ ها</h3>
+                        <div>
+                            <a asp-action="Add">اضافه کردن موزیک جدید</a>
+                        </div>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <table id="example1" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th> نام آهنگ </th>
+                                    <th>خواننده</th>
+                                    <th>شاعر</th>
+                                    <th>آلبوم</th>
+                                    <th>رسته آهنگ</th>
+                                    <th>توضیحات</th>
+                                    <th>عملیات</th>
+                                </tr>
+                            </thead>
+                            <tbody>
 
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.TitleMusic</td>
+                                        <td>@item.Vocalist</td>
+                                        <td>@item.Songwriter</td>
+                                        <td>@item.Album</td>
+                                        <td>@item.MusicCategory</td>
+                                        <td>@item.Description</td>
+                                        <td>
+                                            <a asp-action="Details" asp-route-id="@item.Id">جزئیات</a>
+                                            <a asp-action="Details" asp-route-id="@item.Id">ویرایش</a>
+                                            <a asp-action="Details" asp-route-id="@item.Id">حذف</a>
+                                        </td>
+                                    </tr>
+                                }
+
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th> نام آهنگ </th>
+                                    <th>خواننده</th>
+                                    <th>شاعر</th>
+                                    <th>آلبوم</th>
+                                    <th>رسته آهنگ</th>
+                                    <th>رسته آهنگ2</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+            </div>
+            <!-- /.col -->
         </div>
-    </form>*@
-    <div>
-        <a asp-action="Add">اضافه کردن موزیک جدید</a>
-    </div>
-</body>
+        <!-- /.row -->
+    </section>
+    <!-- /.content -->
+</div>
+
+
+
+@*</body>*@
+@section scripts{
+    <script>
+        $(function () {
+            $('#example1').DataTable()
+            $('#example2').DataTable({
+                'paging': true,
+                'lengthChange': false,
+                'searching': false,
+                'ordering': true,
+                'info': true,
+                'autoWidth': false
+            })
+        })
+    </script>
+}
