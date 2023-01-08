@@ -18,6 +18,26 @@ namespace DownloadMusic.Areas.MainDownload.Controllers
         {
             return View();
         }
+        public IActionResult Category()
+        {
+            return View();
+        }
+        public IActionResult Playlist()
+        {
+            return View();
+        }
+        public IActionResult Artist()
+        {
+            return View();
+        }
+        public IActionResult Blog()
+        {
+            return View();
+        }
+        public IActionResult Contact()
+        {
+            return View();
+        }
 
     }
 }
