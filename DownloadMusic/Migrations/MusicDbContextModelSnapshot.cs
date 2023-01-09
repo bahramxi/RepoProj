@@ -37,13 +37,32 @@ namespace DownloadMusic.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ImageFilePath")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<byte[]>("ImageForSave")
                         .IsRequired()
                         .HasColumnType("varbinary(max)");
 
+                    b.Property<int>("MusicCategory")
+                        .HasColumnType("int");
+
+                    b.Property<string>("MusicFileExtention")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MusicFilePath")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<byte[]>("MusicForSave")
                         .IsRequired()
                         .HasColumnType("varbinary(max)");
+
+                    b.Property<string>("MusicName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("MusicText")
                         .IsRequired()
@@ -64,68 +83,6 @@ namespace DownloadMusic.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("MusicTracks");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1L,
-                            Album = "PareParvaz",
-                            Description = "آهنگ فوق العاده زیبای پنجره",
-                            ImageForSave = new byte[] { 0, 0, 0, 0, 0 },
-                            MusicForSave = new byte[] { 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-                            MusicText = "یه پنجره با یه قفس یه حنجره بی هم نفس",
-                            Songwriter = "روزبه بمانی",
-                            TitleMusic = "Panjere",
-                            Vocalist = "Dariush"
-                        },
-                        new
-                        {
-                            Id = 2L,
-                            Album = "PareParvaz",
-                            Description = "آهنگ فوق العاده زیبای یخ زدم",
-                            ImageForSave = new byte[] { 0, 0, 0, 0, 0 },
-                            MusicForSave = new byte[] { 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-                            MusicText = "گیر کردم تو شبی که  گفتی باید جداشیم",
-                            Songwriter = "ایرج جنتی",
-                            TitleMusic = "PareParvaz",
-                            Vocalist = "Shadmehr"
-                        },
-                        new
-                        {
-                            Id = 3L,
-                            Album = "PareParvaz",
-                            Description = "آهنگ فوق العاده زیبای پرپرواز",
-                            ImageForSave = new byte[] { 0, 0, 0, 0, 0 },
-                            MusicForSave = new byte[] { 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-                            MusicText = "تو هجوم مبهم  پنجره ها پر پرواز منو ازم نگیرید",
-                            Songwriter = "منصور تهرانی",
-                            TitleMusic = "Batel",
-                            Vocalist = "Ebi"
-                        },
-                        new
-                        {
-                            Id = 4L,
-                            Album = "HeseKhob",
-                            Description = " آهنگ فوق العاده زیبای باطل",
-                            ImageForSave = new byte[] { 0, 0, 0, 0, 0 },
-                            MusicForSave = new byte[] { 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-                            MusicText = "باطل است باطل نباش عزیز من",
-                            Songwriter = "اردلان سرافراز",
-                            TitleMusic = "YakhZadam",
-                            Vocalist = "Sattar"
-                        },
-                        new
-                        {
-                            Id = 5L,
-                            Album = "HeseKhob",
-                            Description = "آهنگ فوق العاده زیبای حس خوب",
-                            ImageForSave = new byte[] { 0, 0, 0, 0, 0 },
-                            MusicForSave = new byte[] { 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-                            MusicText = "حس خوبیه وقتی یک نفر منتظرت باشه",
-                            Songwriter = "میلاد بابایی",
-                            TitleMusic = "HesseKhob",
-                            Vocalist = "Omid"
-                        });
                 });
 #pragma warning restore 612, 618
         }

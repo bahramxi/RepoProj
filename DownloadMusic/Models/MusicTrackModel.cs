@@ -25,6 +25,8 @@ namespace DownloadMusic.Models
         public string MusicText { get; set; }
 
         public string MusicFilePath { get; set; }
+        public string MusicName { get; set; }
+        public string MusicFileExtention { get; set; }
         public byte[] MusicForSave { get; set; }
 
 

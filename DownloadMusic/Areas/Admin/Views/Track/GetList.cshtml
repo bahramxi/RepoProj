@@ -1,0 +1,103 @@
+﻿@model List<MusicTrackViewModel>
+
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            آهنگ ها
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> خانه</a></li>
+            <li><a href="#">لیست آهنگ ها</a></li>
+        </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+                <!-- /.box -->
+
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title">لیست آهنگ ها</h3>
+                        <div>
+                            <a asp-action="Add">اضافه کردن موزیک جدید</a>
+                        </div>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <table id="example1" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th> نام آهنگ </th>
+                                    <th>خواننده</th>
+                                    <th>شاعر</th>
+                                    <th>آلبوم</th>
+                                    <th>رسته آهنگ</th>
+                                    <th>توضیحات</th>
+                                    <th>عملیات</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.TitleMusic</td>
+                                        <td>@item.Vocalist</td>
+                                        <td>@item.Songwriter</td>
+                                        <td>@item.Album</td>
+                                        <td>@item.MusicCategory</td>
+                                        <td>@item.Description</td>
+                                        <td>
+                                            <a asp-action="Details" asp-route-id="@item.Id">جزئیات</a>
+                                            <a asp-action="Details" asp-route-id="@item.Id">ویرایش</a>
+                                            <a asp-action="Details" asp-route-id="@item.Id">حذف</a>
+                                        </td>
+                                    </tr>
+                                }
+
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th> نام آهنگ </th>
+                                    <th>خواننده</th>
+                                    <th>شاعر</th>
+                                    <th>آلبوم</th>
+                                    <th>رسته آهنگ</th>
+                                    <th>رسته آهنگ2</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </section>
+    <!-- /.content -->
+</div>
+
+
+
+@*</body>*@
+@section scripts{
+    <script>
+        $(function () {
+            $('#example1').DataTable()
+            $('#example2').DataTable({
+                'paging': true,
+                'lengthChange': false,
+                'searching': false,
+                'ordering': true,
+                'info': true,
+                'autoWidth': false
+            })
+        })
+    </script>
+}
