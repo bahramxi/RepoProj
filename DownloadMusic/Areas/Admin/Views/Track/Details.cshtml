@@ -1,36 +1,67 @@
 ﻿@model DownloadMusic.Models.MusicTrackViewModel
 
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <!-- left column -->
+            <div class="col-md-6">
+                <!-- general form elements -->
+                <div class="box box-primary">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">اطلاعات آهنگ</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <!-- form start -->
+                    <form role="form" asp-action="Add" asp-controller="Track" enctype="multipart/form-data" method="post">
+                        <div class="box-body">
+                            <div class="form-group">
+                                <label>نام آهنگ</label>
+                                <input type="text" class="form-control  m-input" asp-for="TitleMusic" readonly="readonly">
+                                <span asp-validation-for="TitleMusic" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label>شاعر</label>
+                                <input type="text" class="form-control  m-input" asp-for="Songwriter" readonly="readonly">
+                                <span asp-validation-for="Songwriter" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label>خواننده</label>
+                                <input type="text" class="form-control  m-input" asp-for="Vocalist" readonly="readonly">
+                                <span asp-validation-for="Vocalist" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label>آلبوم</label>
+                                <input type="text" class="form-control  m-input" asp-for="Album" readonly="readonly">
+                                <span asp-validation-for="Album" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label>متن آهنگ</label>
+                                <input type="text" class="form-control  m-input" asp-for="MusicText" readonly="readonly">
+                                <span asp-validation-for="MusicText" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label>توضیحات آهنگ</label>
+                                <input type="text" class="form-control  m-input" asp-for="Description" readonly="readonly">
+                                <span asp-validation-for="Description" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label>سبک</label>
+                                <input type="text" class="form-control  m-input" asp-for="MusicCategory" readonly="readonly">
+                                <span asp-validation-for="MusicCategory" class="text-danger"></span>
+                            </div>
 
-<div class="">
-    <div class="">
-        <h3 class="m-login__title">اطلاعات آهنگ</h3>
-    </div>
-        <div class="form-group m-form__group">
-        <input class="form-control m-input" asp-for="TitleMusic" readonly="readonly" />
-        </div>
-        <div class="form-group m-form__group">
-        <input class="form-control m-input" asp-for="Songwriter" readonly="readonly">
-        </div>
-        <div class="form-group m-form__group">
-        <input class="form-control m-input" asp-for="Vocalist" readonly="readonly">
-        </div>
-        <div class="form-group m-form__group">
-        <input class="form-control m-input" asp-for="Album" readonly="readonly">
-        </div>
-        <div class="form-group m-form__group">
-        <input class="form-control m-input" asp-for="MusicText" readonly="readonly">
-        </div>
-        <div class="form-group m-form__group">
-        <input class="form-control m-input" asp-for="Description" readonly="readonly">
-        </div>
-        <div class="form-group m-form__group">
-        <input class="form-control m-input" asp-for="MusicCategory" readonly="readonly">
-        </div>
+                        </div>
+                        <!-- /.box-body -->
 
-        <div class="row mt-2">
-            <div class="col-12">
-                <a asp-action="Update" asp-route-id="@Model.Id">ویرایش</a>
+                        <div class="box-footer">
+                            <a asp-action="Update" asp-route-id="@Model.Id">ویرایش</a>
+                        </div>
+                    </form>
+                </div>
+                <!-- /.box -->
             </div>
         </div>
-
+    </section>
 </div>
