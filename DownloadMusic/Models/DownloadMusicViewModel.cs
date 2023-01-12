@@ -46,5 +46,7 @@ namespace DownloadMusic.Models
 
         [Display(Name = "متن آهنگ", Prompt = "متن آهنگ"), MaxLength(150, ErrorMessage = "حداکثر {0} باید {1} کاراکتر باشد")]
         public string ImageFilePath { get; set; }
+
+        public DateTime CreatedDate { get; set; }
     }
 }

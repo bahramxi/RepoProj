@@ -42,11 +42,24 @@ namespace DownloadMusic.Areas.Admin.Controllers
         private bool AddMusic(MusicTrackViewModel model)
         {
             string path = Path.Combine(Directory.GetCurrentDirectory(), $"UploadFile/{model.MusicCategory}");
+            if (!Directory.Exists(path))
+                Directory.CreateDirectory(path);
             var musicFileName = model.MusicFile.FileName;
-            var imageFileName = model.Image.FileName;
-            FileInfo fileInfo = new FileInfo(model.MusicFile.FileName);
             string musicNameWithPath = Path.Combine(path, musicFileName);
+            using (var stream = new FileStream(musicNameWithPath, FileMode.Create))
+            {
+                model.MusicFile.CopyTo(stream);
+            }
+            var imageFileName = model.Image.FileName;
             string imageWithPath = Path.Combine(path, imageFileName);
+            using (var stream = new FileStream(imageWithPath, FileMode.Create))
+            {
+                model.Image.CopyTo(stream);
+            }
+
+            FileInfo fileInfo = new FileInfo(model.MusicFile.FileName);
+
+
             var music = new MusicTrackModel()
             {
                 Album = model.Album,
@@ -86,7 +99,8 @@ namespace DownloadMusic.Areas.Admin.Controllers
                     Description = s.Description,
                     MusicCategory = s.MusicCategory,
                     Songwriter = s.Songwriter,
-                    Vocalist = s.Vocalist
+                    Vocalist = s.Vocalist,
+                    CreatedDate = s.CreatedDate
                 }).ToList();
             //foreach (var item in resultList)
             //{
@@ -119,20 +133,6 @@ namespace DownloadMusic.Areas.Admin.Controllers
         public IActionResult Add(MusicTrackViewModel model)
         {
             model.IsResponse = true;
-            string path = Path.Combine(Directory.GetCurrentDirectory(), $"UploadFile/{model.MusicCategory}");
-
-            //create folder if not exist
-            if (!Directory.Exists(path))
-                Directory.CreateDirectory(path);
-
-            //get file extension
-            var fileName = model.MusicFile.FileName;
-            string fileNameWithPath = Path.Combine(path, fileName);
-            using (var stream = new FileStream(fileNameWithPath, FileMode.Create))
-            {
-                model.MusicFile.CopyTo(stream);
-            }
-
             var result = AddMusic(model);
             model.IsSuccess = true;
             model.Message = "موزیک با موفقیت اضافه شد.";
@@ -177,16 +177,18 @@ namespace DownloadMusic.Areas.Admin.Controllers
                 Directory.CreateDirectory(path);
 
             var musicFileName = model.MusicFile.FileName;
-            string fileNameWithPath = Path.Combine(path, musicFileName);
-            using (var stream = new FileStream(fileNameWithPath, FileMode.Create))
+            string musicNameWithPath = Path.Combine(path, musicFileName);
+            using (var stream = new FileStream(musicNameWithPath, FileMode.Create))
             {
                 model.MusicFile.CopyTo(stream);
             }
             var imageFileName = model.Image.FileName;
-            FileInfo fileInfo = new FileInfo(model.MusicFile.FileName);
-            string musicNameWithPath = Path.Combine(path, musicFileName);
             string imageWithPath = Path.Combine(path, imageFileName);
-
+            using (var stream = new FileStream(imageWithPath, FileMode.Create))
+            {
+                model.Image.CopyTo(stream);
+            }
+            FileInfo fileInfo = new FileInfo(model.MusicFile.FileName);
 
             var musicResult = _musicDb.MusicTracks.Find(id);
 
@@ -240,7 +242,8 @@ namespace DownloadMusic.Areas.Admin.Controllers
                 Songwriter = result.Songwriter,
                 MusicCategory = result.MusicCategory,
                 Vocalist = result.Vocalist,
-                MusicText = result.MusicText
+                MusicText = result.MusicText,
+                CreatedDate = result.CreatedDate
             };
             return View(model);
         }

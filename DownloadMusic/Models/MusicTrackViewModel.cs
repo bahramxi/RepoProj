@@ -45,5 +45,8 @@ namespace DownloadMusic.Models
 
         [Display(Name = "توضیحات آهنگ", Prompt = "توضیحات آهنگ"), MaxLength(150, ErrorMessage = "حداکثر {0} باید {1} کاراکتر باشد")]
         public string Description { get; set; }
+
+        public DateTime CreatedDate { get; set; }
+
     }
 }

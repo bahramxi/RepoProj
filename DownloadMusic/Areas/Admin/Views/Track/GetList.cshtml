@@ -36,6 +36,7 @@
                                     <th>شاعر</th>
                                     <th>آلبوم</th>
                                     <th>رسته آهنگ</th>
+                                    <th>تاریخ ایجاد</th>
                                     <th>توضیحات</th>
                                     <th>عملیات</th>
                                 </tr>
@@ -50,6 +51,7 @@
                                         <td>@item.Songwriter</td>
                                         <td>@item.Album</td>
                                         <td>@item.MusicCategory</td>
+                                        <td>@item.CreatedDate</td>
                                         <td>@item.Description</td>
                                         <td>
                                             <a asp-action="Details" asp-route-id="@item.Id">جزئیات</a>
@@ -67,7 +69,9 @@
                                     <th>شاعر</th>
                                     <th>آلبوم</th>
                                     <th>سبک آهنگ</th>
+                                    <th>تاریخ ایجاد</th>
                                     <th>توضیحات</th>
+                                    <th>عملیات</th>
                                 </tr>
                             </tfoot>
                         </table>
