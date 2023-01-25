@@ -13,7 +13,7 @@ namespace DownloadMusic.Areas.Admin.Controllers
     public class TrackController : Controller
     {
         private readonly ILogger<TrackController> _logger;
-        public MusicDbContext _musicDb { get; set; }
+        public MusicDbContext _musicDb;
         public TrackController(ILogger<TrackController> logger, MusicDbContext musicDb)
         {
             _logger = logger;

@@ -1,3 +1,4 @@
+@model List<DownloadMusicViewModel>
 
 <!-- Category section -->
 <section class="category-section spad">
@@ -50,7 +51,6 @@
     </div>
 </section>
 <!-- Category section end -->
-
 <!-- Playlist section -->
 <section class="playlist-section spad">
     <div class="container-fluid" style="direction: rtl">
@@ -62,7 +62,6 @@
                 <li class="control" data-filter="all">جدیدترین ها</li>
                 <li class="control" data-filter=".labels">برترین ها</li>
                 <li class="control" data-filter=".movies">تک آهنگ</li>
-                <li class="control" data-filter=".artists">موزیک ویدئو</li>
                 <li class="control" data-filter=".genres">به زودی..</li>
             </ul>
         </div>
@@ -70,224 +69,226 @@
         <div class="clearfix"></div>
         <div class="row playlist-area">
 
+            @foreach (var item in Model)
+            {
 
-            <div class="mix col-lg-3 col-md-4 col-sm-6 genres" style="margin-bottom: 40px;">
-                <div class="category-item">
-                    <img src="~/img/playlist/13.jpg" alt="">
-                    <div class="ci-text">
-                        <h6 style="color: white ">بابک جهانبخش</h6>
-                        <p>صدای عشق</p>
+                <div class="mix col-lg-3 col-md-4 col-sm-6 genres" style="margin-bottom: 40px;">
+                    <div class="category-item">
+                        <img src="~/img/playlist/7.jpg" alt="">
+                        <div class="ci-text">
+                            <h6 style="color: white ">@item.Vocalist</h6>
+                            <p>@item.TitleMusic</p>
+                        </div>
+                        <a href="artist.html" class="ci-link"><i class="fa fa-play"></i></a>
                     </div>
-                    <a href="artist.html" class="ci-link"><i class="fa fa-play"></i></a>
                 </div>
-            </div>
 
 
-            <div class="mix col-lg-3 col-md-4 col-sm-6 artists" style="margin-bottom: 40px;">
-                <div class="category-item">
-                    <img src="~/img/playlist/7.jpg" alt="">
-                    <div class="ci-text">
-                        <h6 style="color: white ">بابک جهانبخش</h6>
-                        <p>صدای عشق</p>
+@*                <div class="mix col-lg-3 col-md-4 col-sm-6 artists" style="margin-bottom: 40px;">
+                    <div class="category-item">
+                        <img src="~/img/playlist/7.jpg" alt="">
+                        <div class="ci-text">
+                            <h6 style="color: white ">بابک جهانبخش</h6>
+                            <p>صدای عشق</p>
+                        </div>
+                        <a href="artist.html" class="ci-link"><i class="fa fa-play"></i></a>
                     </div>
-                    <a href="artist.html" class="ci-link"><i class="fa fa-play"></i></a>
                 </div>
-            </div>
 
 
-            <div class="mix col-lg-3 col-md-4 col-sm-6 movies" style="margin-bottom: 40px;">
-                <div class="category-item">
-                    <img src="~/img/playlist/15.jpg" alt="">
-                    <div class="ci-text">
-                        <h6 style="color: white ">بابک جهانبخش</h6>
-                        <p>صدای عشق</p>
+                <div class="mix col-lg-3 col-md-4 col-sm-6 movies" style="margin-bottom: 40px;">
+                    <div class="category-item">
+                        <img src="~/img/playlist/15.jpg" alt="">
+                        <div class="ci-text">
+                            <h6 style="color: white ">بابک جهانبخش</h6>
+                            <p>صدای عشق</p>
+                        </div>
+                        <a href="artist.html" class="ci-link"><i class="fa fa-play"></i></a>
                     </div>
-                    <a href="artist.html" class="ci-link"><i class="fa fa-play"></i></a>
                 </div>
-            </div>
 
 
-            <div class="mix col-lg-3 col-md-4 col-sm-6 labels" style="margin-bottom: 40px;">
-                <div class="category-item">
-                    <img src="~/img/playlist/1.jpg" alt="">
-                    <div class="ci-text">
-                        <h6 style="color: white ">بابک جهانبخش</h6>
-                        <p>صدای عشق</p>
+                <div class="mix col-lg-3 col-md-4 col-sm-6 labels" style="margin-bottom: 40px;">
+                    <div class="category-item">
+                        <img src="~/img/playlist/1.jpg" alt="">
+                        <div class="ci-text">
+                            <h6 style="color: white ">بابک جهانبخش</h6>
+                            <p>صدای عشق</p>
+                        </div>
+                        <a href="artist.html" class="ci-link"><i class="fa fa-play"></i></a>
                     </div>
-                    <a href="artist.html" class="ci-link"><i class="fa fa-play"></i></a>
                 </div>
-            </div>
 
 
-            <div class="mix col-lg-3 col-md-4 col-sm-6 artists" style="margin-bottom: 40px;">
-                <div class="category-item">
-                    <img src="~/img/playlist/2.jpg" alt="">
-                    <div class="ci-text">
-                        <h6 style="color: white ">بابک جهانبخش</h6>
-                        <p>صدای عشق</p>
+                <div class="mix col-lg-3 col-md-4 col-sm-6 artists" style="margin-bottom: 40px;">
+                    <div class="category-item">
+                        <img src="~/img/playlist/2.jpg" alt="">
+                        <div class="ci-text">
+                            <h6 style="color: white ">بابک جهانبخش</h6>
+                            <p>صدای عشق</p>
+                        </div>
+                        <a href="artist.html" class="ci-link"><i class="fa fa-play"></i></a>
+
                     </div>
-                    <a href="artist.html" class="ci-link"><i class="fa fa-play"></i></a>
-
                 </div>
-            </div>
 
 
-            <div class="mix col-lg-3 col-md-4 col-sm-6 artists" style="margin-bottom: 40px;">
-                <div class="category-item">
-                    <img src="~/img/playlist/3.jpg" alt="">
-                    <div class="ci-text">
-                        <h6 style="color: white ">بابک جهانبخش</h6>
-                        <p>صدای عشق</p>
+                <div class="mix col-lg-3 col-md-4 col-sm-6 artists" style="margin-bottom: 40px;">
+                    <div class="category-item">
+                        <img src="~/img/playlist/3.jpg" alt="">
+                        <div class="ci-text">
+                            <h6 style="color: white ">بابک جهانبخش</h6>
+                            <p>صدای عشق</p>
+                        </div>
+                        <a href="artist.html" class="ci-link"><i class="fa fa-play"></i></a>
                     </div>
-                    <a href="artist.html" class="ci-link"><i class="fa fa-play"></i></a>
                 </div>
-            </div>
 
-            <div class="mix col-lg-3 col-md-4 col-sm-6 genres" style="margin-bottom: 40px;">
-                <div class="category-item">
-                    <img src="~/img/playlist/4.jpg" alt="">
-                    <div class="ci-text">
-                        <h6 style="color: white ">بابک جهانبخش</h6>
-                        <p>صدای عشق</p>
+                <div class="mix col-lg-3 col-md-4 col-sm-6 genres" style="margin-bottom: 40px;">
+                    <div class="category-item">
+                        <img src="~/img/playlist/4.jpg" alt="">
+                        <div class="ci-text">
+                            <h6 style="color: white ">بابک جهانبخش</h6>
+                            <p>صدای عشق</p>
+                        </div>
+                        <a href="artist.html" class="ci-link"><i class="fa fa-play"></i></a>
                     </div>
-                    <a href="artist.html" class="ci-link"><i class="fa fa-play"></i></a>
                 </div>
-            </div>
 
 
-            <div class="mix col-lg-3 col-md-4 col-sm-6 artists" style="margin-bottom: 40px;">
-                <div class="category-item">
-                    <img src="~/img/playlist/5.jpg" alt="">
-                    <div class="ci-text">
-                        <h6 style="color: white ">بابک جهانبخش</h6>
-                        <p>صدای عشق</p>
+                <div class="mix col-lg-3 col-md-4 col-sm-6 artists" style="margin-bottom: 40px;">
+                    <div class="category-item">
+                        <img src="~/img/playlist/5.jpg" alt="">
+                        <div class="ci-text">
+                            <h6 style="color: white ">بابک جهانبخش</h6>
+                            <p>صدای عشق</p>
+                        </div>
+                        <a href="artist.html" class="ci-link"><i class="fa fa-play"></i></a>
                     </div>
-                    <a href="artist.html" class="ci-link"><i class="fa fa-play"></i></a>
                 </div>
-            </div>
 
 
-            <div class="mix col-lg-3 col-md-4 col-sm-6 movies" style="margin-bottom: 40px;">
-                <div class="category-item">
-                    <img src="~/img/playlist/6.jpg" alt="">
-                    <div class="ci-text">
-                        <h6 style="color: white ">بابک جهانبخش</h6>
-                        <p>صدای عشق</p>
+                <div class="mix col-lg-3 col-md-4 col-sm-6 movies" style="margin-bottom: 40px;">
+                    <div class="category-item">
+                        <img src="~/img/playlist/6.jpg" alt="">
+                        <div class="ci-text">
+                            <h6 style="color: white ">بابک جهانبخش</h6>
+                            <p>صدای عشق</p>
+                        </div>
+                        <a href="artist.html" class="ci-link"><i class="fa fa-play"></i></a>
                     </div>
-                    <a href="artist.html" class="ci-link"><i class="fa fa-play"></i></a>
                 </div>
-            </div>
 
 
-            <div class="mix col-lg-3 col-md-4 col-sm-6 labels" style="margin-bottom: 40px;">
-                <div class="category-item">
-                    <img src="~/img/playlist/7.jpg" alt="">
-                    <div class="ci-text">
-                        <h6 style="color: white ">بابک جهانبخش</h6>
-                        <p>صدای عشق</p>
+                <div class="mix col-lg-3 col-md-4 col-sm-6 labels" style="margin-bottom: 40px;">
+                    <div class="category-item">
+                        <img src="~/img/playlist/7.jpg" alt="">
+                        <div class="ci-text">
+                            <h6 style="color: white ">بابک جهانبخش</h6>
+                            <p>صدای عشق</p>
+                        </div>
+                        <a href="artist.html" class="ci-link"><i class="fa fa-play"></i></a>
                     </div>
-                    <a href="artist.html" class="ci-link"><i class="fa fa-play"></i></a>
                 </div>
-            </div>
 
 
-            <div class="mix col-lg-3 col-md-4 col-sm-6 artists" style="margin-bottom: 40px;">
-                <div class="category-item">
-                    <img src="~/img/playlist/8.jpg" alt="">
-                    <div class="ci-text">
-                        <h6 style="color: white ">بابک جهانبخش</h6>
-                        <p>صدای عشق</p>
+                <div class="mix col-lg-3 col-md-4 col-sm-6 artists" style="margin-bottom: 40px;">
+                    <div class="category-item">
+                        <img src="~/img/playlist/8.jpg" alt="">
+                        <div class="ci-text">
+                            <h6 style="color: white ">بابک جهانبخش</h6>
+                            <p>صدای عشق</p>
+                        </div>
+                        <a href="artist.html" class="ci-link"><i class="fa fa-play"></i></a>
+
                     </div>
-                    <a href="artist.html" class="ci-link"><i class="fa fa-play"></i></a>
-
                 </div>
-            </div>
 
 
-            <div class="mix col-lg-3 col-md-4 col-sm-6 artists" style="margin-bottom: 40px;">
-                <div class="category-item">
-                    <img src="~/img/playlist/9.jpg" alt="">
-                    <div class="ci-text">
-                        <h6 style="color: white ">بابک جهانبخش</h6>
-                        <p>صدای عشق</p>
+                <div class="mix col-lg-3 col-md-4 col-sm-6 artists" style="margin-bottom: 40px;">
+                    <div class="category-item">
+                        <img src="~/img/playlist/9.jpg" alt="">
+                        <div class="ci-text">
+                            <h6 style="color: white ">بابک جهانبخش</h6>
+                            <p>صدای عشق</p>
+                        </div>
+                        <a href="artist.html" class="ci-link"><i class="fa fa-play"></i></a>
                     </div>
-                    <a href="artist.html" class="ci-link"><i class="fa fa-play"></i></a>
                 </div>
-            </div>
 
-            <div class="mix col-lg-3 col-md-4 col-sm-6 genres" style="margin-bottom: 40px;">
-                <div class="category-item">
-                    <img src="~/img/playlist/10.jpg" alt="">
-                    <div class="ci-text">
-                        <h6 style="color: white ">بابک جهانبخش</h6>
-                        <p>صدای عشق</p>
+                <div class="mix col-lg-3 col-md-4 col-sm-6 genres" style="margin-bottom: 40px;">
+                    <div class="category-item">
+                        <img src="~/img/playlist/10.jpg" alt="">
+                        <div class="ci-text">
+                            <h6 style="color: white ">بابک جهانبخش</h6>
+                            <p>صدای عشق</p>
+                        </div>
+                        <a href="artist.html" class="ci-link"><i class="fa fa-play"></i></a>
                     </div>
-                    <a href="artist.html" class="ci-link"><i class="fa fa-play"></i></a>
                 </div>
-            </div>
 
 
-            <div class="mix col-lg-3 col-md-4 col-sm-6 artists" style="margin-bottom: 40px;">
-                <div class="category-item">
-                    <img src="~/img/playlist/11.jpg" alt="">
-                    <div class="ci-text">
-                        <h6 style="color: white ">بابک جهانبخش</h6>
-                        <p>صدای عشق</p>
+                <div class="mix col-lg-3 col-md-4 col-sm-6 artists" style="margin-bottom: 40px;">
+                    <div class="category-item">
+                        <img src="~/img/playlist/11.jpg" alt="">
+                        <div class="ci-text">
+                            <h6 style="color: white ">بابک جهانبخش</h6>
+                            <p>صدای عشق</p>
+                        </div>
+                        <a href="artist.html" class="ci-link"><i class="fa fa-play"></i></a>
                     </div>
-                    <a href="artist.html" class="ci-link"><i class="fa fa-play"></i></a>
                 </div>
-            </div>
 
 
-            <div class="mix col-lg-3 col-md-4 col-sm-6 movies" style="margin-bottom: 40px;">
-                <div class="category-item">
-                    <img src="~/img/playlist/12.jpg" alt="">
-                    <div class="ci-text">
-                        <h6 style="color: white ">بابک جهانبخش</h6>
-                        <p>صدای عشق</p>
+                <div class="mix col-lg-3 col-md-4 col-sm-6 movies" style="margin-bottom: 40px;">
+                    <div class="category-item">
+                        <img src="~/img/playlist/12.jpg" alt="">
+                        <div class="ci-text">
+                            <h6 style="color: white ">بابک جهانبخش</h6>
+                            <p>صدای عشق</p>
+                        </div>
+                        <a href="artist.html" class="ci-link"><i class="fa fa-play"></i></a>
                     </div>
-                    <a href="artist.html" class="ci-link"><i class="fa fa-play"></i></a>
                 </div>
-            </div>
 
 
-            <div class="mix col-lg-3 col-md-4 col-sm-6 labels" style="margin-bottom: 40px;">
-                <div class="category-item">
-                    <img src="~/img/playlist/13.jpg" alt="">
-                    <div class="ci-text">
-                        <h6 style="color: white ">بابک جهانبخش</h6>
-                        <p>صدای عشق</p>
+                <div class="mix col-lg-3 col-md-4 col-sm-6 labels" style="margin-bottom: 40px;">
+                    <div class="category-item">
+                        <img src="~/img/playlist/13.jpg" alt="">
+                        <div class="ci-text">
+                            <h6 style="color: white ">بابک جهانبخش</h6>
+                            <p>صدای عشق</p>
+                        </div>
+                        <a href="artist.html" class="ci-link"><i class="fa fa-play"></i></a>
                     </div>
-                    <a href="artist.html" class="ci-link"><i class="fa fa-play"></i></a>
                 </div>
-            </div>
 
 
-            <div class="mix col-lg-3 col-md-4 col-sm-6 artists" style="margin-bottom: 40px;">
-                <div class="category-item">
-                    <img src="~/img/playlist/14.jpg" alt="">
-                    <div class="ci-text">
-                        <h6 style="color: white ">بابک جهانبخش</h6>
-                        <p>صدای عشق</p>
+                <div class="mix col-lg-3 col-md-4 col-sm-6 artists" style="margin-bottom: 40px;">
+                    <div class="category-item">
+                        <img src="~/img/playlist/14.jpg" alt="">
+                        <div class="ci-text">
+                            <h6 style="color: white ">بابک جهانبخش</h6>
+                            <p>صدای عشق</p>
+                        </div>
+                        <a href="artist.html" class="ci-link"><i class="fa fa-play"></i></a>
+
                     </div>
-                    <a href="artist.html" class="ci-link"><i class="fa fa-play"></i></a>
-
                 </div>
-            </div>
 
 
-            <div class="mix col-lg-3 col-md-4 col-sm-6 artists" style="margin-bottom: 40px;">
-                <div class="category-item">
-                    <img src="~/img/playlist/15.jpg" alt="">
-                    <div class="ci-text">
-                        <h6 style="color: white ">بابک جهانبخش</h6>
-                        <p>صدای عشق</p>
+                <div class="mix col-lg-3 col-md-4 col-sm-6 artists" style="margin-bottom: 40px;">
+                    <div class="category-item">
+                        <img src="~/img/playlist/15.jpg" alt="">
+                        <div class="ci-text">
+                            <h6 style="color: white ">بابک جهانبخش</h6>
+                            <p>صدای عشق</p>
+                        </div>
+                        <a href="artist.html" class="ci-link"><i class="fa fa-play"></i></a>
                     </div>
-                    <a href="artist.html" class="ci-link"><i class="fa fa-play"></i></a>
                 </div>
-            </div>
-
-
+*@
+            }
         </div>
     </div>
 </section>
