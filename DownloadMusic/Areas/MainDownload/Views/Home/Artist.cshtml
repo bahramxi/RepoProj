@@ -1,6 +1,7 @@
+@model DownloadMusicViewModel
 
 <!-- Player section -->
-<section class="player-section set-bg" data-setbg="~/img/player-bg.jpg">
+<section class="player-section set-bg" data-setbg="@Model.ImageFilePath">
     <div class="player-box">
         <div class="tarck-thumb-warp">
             <div class="tarck-thumb">
@@ -12,8 +13,8 @@
             <div class="row">
                 <div class="col-lg-8">
                     <div class="wave-player-info">
-                        <h2 class="rtl line-height">علی لهراسبی</h2>
-                        <p class="rtl">صورت</p>
+                        <h2 class="rtl line-height">@Model.Vocalist</h2>
+                        <p class="rtl">@Model.TitleMusic</p>
                     </div>
                 </div>
                 <div class="col-lg-4">
@@ -25,7 +26,7 @@
                 </div>
             </div>
             <div id="wavePlayer" class="clierfix">
-                <div id="audiowave" data-waveurl="music-files/8.mp3"></div>
+                <div id="audiowave" data-waveurl="@Model.MusicFilePath"></div>
                 <div id="currentTime"></div>
                 <div id="clipTime"></div>
                 <!-- Player Controls -->
@@ -53,7 +54,7 @@
                             <div class="artist-details rtl text-right">
                                 <img src="~/img/artist.jpg" alt="">
                                 <div class="ad-text">
-                                    <h5>بابک جهانبخش</h5>
+                                    <h5>@Model.Vocalist</h5>
                                     <span>خواننده</span>
                                     <p class="text-right">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است </p>
                                 </div>

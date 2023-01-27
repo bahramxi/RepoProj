@@ -10,7 +10,6 @@ namespace DownloadMusic.Models
         [HiddenInput]
         public long Id { get; set; }
 
-        [Required(ErrorMessage = "{0} را وارد نمایید")]
         [Display(Name = "نام موزیک", Prompt = "نام موزیک"), MaxLength(150, ErrorMessage = "حداکثر {0} باید {1} کاراکتر باشد")]
         public string TitleMusic { get; set; }
 
@@ -19,7 +18,6 @@ namespace DownloadMusic.Models
         public string Songwriter { get; set; }
 
 
-        [Required(ErrorMessage = "{0} را وارد نمایید")]
         [Display(Name = "خواننده", Prompt = "خواننده"), MaxLength(150, ErrorMessage = "حداکثر {0} باید {1} کاراکتر باشد")]
         public string Vocalist { get; set; }
 
@@ -40,11 +38,9 @@ namespace DownloadMusic.Models
         public string Description { get; set; }
 
 
-        [Display(Name = "متن آهنگ", Prompt = "متن آهنگ"), MaxLength(150, ErrorMessage = "حداکثر {0} باید {1} کاراکتر باشد")]
         public string MusicFilePath { get; set; }
 
 
-        [Display(Name = "متن آهنگ", Prompt = "متن آهنگ"), MaxLength(150, ErrorMessage = "حداکثر {0} باید {1} کاراکتر باشد")]
         public string ImageFilePath { get; set; }
 
         public DateTime CreatedDate { get; set; }
